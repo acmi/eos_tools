@@ -1,0 +1,24 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'Main'
+
+repositories {
+    maven { url "https://raw.githubusercontent.com/acmi/L2io/mvn-repo" }
+}
+
+dependencies {
+    compile group:'acmi.l2.clientmod', name:'l2io', version: '2.2.+'
+}
+
+jar {
+    configurations.compile.collect {
+        from(zipTree(it)) {
+            exclude 'META-INF/**'
+        }
+    }
+
+    manifest {
+        attributes('Main-Class': mainClassName)
+    }
+}
