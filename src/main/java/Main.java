@@ -33,6 +33,9 @@ public class Main {
             case "-patch_usx":
                 USXPatcher.main(args);
                 break;
+            case "-patch_uax":
+                UAXPatcher.main(args);
+                break;
             case "-decrypt":
                 Decrypt.main(args);
                 break;
